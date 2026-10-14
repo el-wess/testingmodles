@@ -1,0 +1,16 @@
+Observed vectors (count of model names):
+   25  {'english': 15, 'code': 28, 'chinese': 10, 'japanese': 8, 'russian': 18, 'arabic': 13, 'emoji': 27, 'digits': 20, 'whitespace': 8, 'rare': 17, 'glitch': 13, 'hex': 40, 'repeat': 40}
+
+tokenizer                    match  english    code chinese japanes russian  arabic   emoji  digits whitesp    rare  glitch     hex  repeat
+OBSERVED (API)                --        15      28      10       8      18      13      27      20       8      17      13      40      40
+cl100k_base (openai)          6/13      15      28      20      18      35      28      40      20       8      20      12      40      40
+o200k_base (openai)           8/13      15      28      12      11      18      12      24      20       8      18      13      40      40
+gemma-2 (google)              6/13      15      32      10       8      17      13      15      60       8      16      12      41      40
+deepseek-v3 (deepseek)        7/13      15      28       8       9      21      13      24      20       8      19      15      40      40
+qwen3 (alibaba)               4/13      15      28       9      10      23      15      19      60       8      20      12      41      40
+glm-4.5 (zhipu)               5/13      15      28       8       9      19      17      36      38       8      20      12      40      40
+llama-3.3 (meta)              7/13      15      28      13      10      18      15      36      20       8      19      12      40      40
+mistral-small-3.1             4/13      15      28      18      11      20      11      50      60       8      19      15      41      40
+minimax-m2                    7/13      15      28       8       6      20      10      24      20       8      19      13      40      40
+gpt-oss (openai)              8/13      15      28      12      11      18      12      24      20       8      18      13      40      40
+kimi-k2 (moonshot)            8/13      15      28       8      13      28      20      27      20       8      19      13      40      40

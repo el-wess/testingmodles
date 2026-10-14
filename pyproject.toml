@@ -1,0 +1,6 @@
+[project]
+name = "model-probe"
+version = "0.1.0"
+description = "Detect whether an LLM API serves the same model under different names"
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31"]
