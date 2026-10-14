@@ -1,5 +1,5 @@
 Observed vectors (count of model names):
-   25  {'english': 15, 'code': 28, 'chinese': 10, 'japanese': 8, 'russian': 18, 'arabic': 13, 'emoji': 27, 'digits': 20, 'whitespace': 8, 'rare': 17, 'glitch': 13, 'hex': 40, 'repeat': 40}
+   27  {'english': 15, 'code': 28, 'chinese': 10, 'japanese': 8, 'russian': 18, 'arabic': 13, 'emoji': 27, 'digits': 20, 'whitespace': 8, 'rare': 17, 'glitch': 13, 'hex': 40, 'repeat': 40}
 
 tokenizer                    match  english    code chinese japanes russian  arabic   emoji  digits whitesp    rare  glitch     hex  repeat
 OBSERVED (API)                --        15      28      10       8      18      13      27      20       8      17      13      40      40
@@ -13,4 +13,5 @@ llama-3.3 (meta)              7/13      15      28      13      10      18      
 mistral-small-3.1             4/13      15      28      18      11      20      11      50      60       8      19      15      41      40
 minimax-m2                    7/13      15      28       8       6      20      10      24      20       8      19      13      40      40
 gpt-oss (openai)              8/13      15      28      12      11      18      12      24      20       8      18      13      40      40
+muse-glimmer-30b (meta)      13/13      15      28      10       8      18      13      27      20       8      17      13      40      40
 kimi-k2 (moonshot)            8/13      15      28       8      13      28      20      27      20       8      19      13      40      40

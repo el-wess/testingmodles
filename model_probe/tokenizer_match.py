@@ -19,6 +19,8 @@ HF_TOKENIZERS = {
     "mistral-small-3.1": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
     "minimax-m2": "MiniMaxAI/MiniMax-M2",
     "gpt-oss (openai)": "openai/gpt-oss-20b",
+    # Open-weight distillation of Muse Spark; Spark itself is API-only.
+    "muse-glimmer-30b (meta)": "meta-models/Muse-Glimmer-30B",
 }
 
 # From moonshotai/Kimi-K2-Instruct tokenization_kimi.py

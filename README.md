@@ -6,13 +6,15 @@ provider serves one underlying model under 33 different names.
 
 ## Verdict
 
-**All 33 model names behave like the same underlying model.** The provider
-gives each name a different persona through a hidden system prompt. The
+**All 33 model names behave like the same underlying model, very likely from
+Meta's Muse family (Muse Spark or its open-weight distillation, Muse Glimmer).**
+The provider gives each name a different persona through a hidden system prompt. The
 evidence comes from 1,650+ requests (October 14, 2026); full data is in `results/`.
 
 | Signal | What we found |
 |---|---|
-| **Tokenizer** (strongest) | All 33 names produce **identical** prompt-token counts on 13 probe strings (English, code, Chinese, Japanese, Russian, Arabic, emoji, digits, whitespace, rare words, glitch tokens, hex, repetition). Real tokenizers disagree sharply on these strings. For example, real Gemma-2 and Qwen3 split the 61-digit string into 60 tokens, but every name here, including "gemma-2-2b", counts 20. The shared vector does not exactly match any public tokenizer we tested (OpenAI cl100k/o200k, gpt-oss, Gemma-2, DeepSeek-V3, Qwen3, GLM-4.5, Llama-3.3, Mistral, MiniMax-M2, Kimi-K2). See `results/tokenizer_match.txt`. |
+| **Tokenizer** (strongest) | All 33 names produce **identical** prompt-token counts on 13 probe strings (English, code, Chinese, Japanese, Russian, Arabic, emoji, digits, whitespace, rare words, glitch tokens, hex, repetition). Real tokenizers disagree sharply on these strings. For example, real Gemma-2 and Qwen3 split the 61-digit string into 60 tokens, but every name here, including "gemma-2-2b", counts 20. The shared vector **matches Meta's Muse tokenizer exactly (13/13, via the open-weight Muse Glimmer 30B, which is distilled from Muse Spark)**. Every other public tokenizer we tested matches at most 8 of 13 (OpenAI cl100k/o200k, gpt-oss, Gemma-2, DeepSeek-V3, Qwen3, GLM-4.5, Llama-3.3, Mistral, MiniMax-M2, Kimi-K2). See `results/tokenizer_match.txt`. |
+| **Meta leaks** | Three Claude personas slipped and named Meta in Chinese (`我是 Meta 开发的 Claude Opus 4.6 模型。` from claude-opus-4.6, plus claude-mythos-preview and claude-opus-4.7). A GPT persona (gpt-5.6-luna) named its base family `Llama`. No persona leaked any other vendor. |
 | **Hidden system prompt** | A one-word prompt costs 285–308 prompt tokens on every name. A hidden system prompt of about 285 tokens is injected, and its length varies slightly by name, which fits a per-name persona template. Models refuse to reveal it, and all of them refuse with nearly the same wording. |
 | **Self-identity** | Every name answers "who are you" with the same sentence template (`I am X created and trained by Y.` / `我是 Y 开发的 X 模型。`). Only X and Y change: Claude, GPT, Gemini, Grok, Qwen, DeepSeek, Kimi, GLM, Seed, Muse, Gemma. Every name gives a **January 2026** training cutoff, including "gemma-2-2b", a 2024 model. |
 | **Reasoning** | Every name, including "gemma-2-2b" (a non-reasoning 2B model), spends about 87–90% of completion tokens on hidden reasoning. Every name rejects `logprobs` with the same error: "`logprobs` is not supported with reasoning". |
@@ -20,6 +22,10 @@ evidence comes from 1,650+ requests (October 14, 2026); full data is in `results
 | **Long-form similarity** | The mean 4-gram Jaccard similarity *between different names* (0.47) is about the same as the similarity of *one name with its own repeat* (0.49). Different names are as similar as the same name sampled twice. |
 
 ### Caveats
+
+- The tokenizer cannot tell Muse Spark (API-only) apart from Muse Glimmer 30B
+  (open-weight and free to self-host). Both use the same tokenizer, so the
+  backend could be either one, or a specific Spark version (1.1/1.2/1.3).
 
 - The tokenizer test shows that all names share **one tokenizer**. Together with
   the identical quirks and templates, this is strong evidence for one model. It
